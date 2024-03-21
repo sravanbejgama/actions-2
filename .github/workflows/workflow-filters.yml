@@ -4,16 +4,13 @@ on:
     workflow_dispatch: 
     # schedule: 
     # - cron: " *159 * * * *"
-	
     push:
         branches:
             - main
-            - '!feature/*'  # ignoring pushing to any branch name starting with feature using ! 
-
-        # branches-ignore: 
-        # -feature/*  # feature/add-music, feature/updatelmages 
-	    # - test/**   # test/ui/index, test/checkout/payment/ 
-	
+            - '!feature/*'  # ignoring pushing to any branch name starting with feature using !
+            # branches-ignore:
+                # -feature/*  # feature/add-music, feature/updatelmages
+                # - test/**   # test/ui/index, test/checkout/payment/ 	
     pull_request:
         types:
             - opened 
@@ -24,7 +21,7 @@ on:
             - main     # configures your workflow to only run on pull requests that target specific branches. 
     
 jobs: 
-    hello:     
-    runs-on: ubuntu-latest 
-    steps: 
-    - run: echo this workflow/ job/ step is executed for event type - ${{ github.event_name }} 
+    hello:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo this workflow/ job/ step is executed for event type - ${{ github.event_name }} 
